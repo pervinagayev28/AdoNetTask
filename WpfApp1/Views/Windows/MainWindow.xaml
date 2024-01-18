@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="10" Orientation="Horizontal" VerticalAlignment="Top">
+            <Button  x:Name="CategorySelectedChangedBtn" Visibility="Hidden" Command="{Binding CategoryComboboxSelected}"></Button>
+            <ComboBox ItemsSource="{Binding CategoryNames}" Name="CategoryCombobox" SelectionChanged="CategoryComboboxSelectedChanged"  HorizontalAlignment="Left" Margin="0,0,50,0" Height="50" Width="200" Text="hello combo"></ComboBox>
+            <ComboBox Name="AuthorsCombobox" IsEnabled="False" ItemsSource="{Binding AuthorsNames}" HorizontalAlignment="Left" Height="50" Width="200" Text="hello combo"></ComboBox>
+        </StackPanel>
+
+        
+    </Grid>
+</Window>
