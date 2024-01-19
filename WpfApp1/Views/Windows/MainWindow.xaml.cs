@@ -28,5 +28,7 @@ namespace WpfApp1
         {
             CategorySelectedChangedBtn.Command.Execute(AuthorsCombobox);
         }
+
+        
     }
 }

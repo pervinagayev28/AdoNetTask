@@ -5,14 +5,87 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="1200">
     <Grid>
-        <StackPanel Margin="10" Orientation="Horizontal" VerticalAlignment="Top">
-            <Button  x:Name="CategorySelectedChangedBtn" Visibility="Hidden" Command="{Binding CategoryComboboxSelected}"></Button>
-            <ComboBox ItemsSource="{Binding CategoryNames}" Name="CategoryCombobox" SelectionChanged="CategoryComboboxSelectedChanged"  HorizontalAlignment="Left" Margin="0,0,50,0" Height="50" Width="200" Text="hello combo"></ComboBox>
-            <ComboBox Name="AuthorsCombobox" IsEnabled="False" ItemsSource="{Binding AuthorsNames}" HorizontalAlignment="Left" Height="50" Width="200" Text="hello combo"></ComboBox>
-        </StackPanel>
+        <StackPanel>
+            <Label Content="Task One" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <StackPanel HorizontalAlignment="Center" Margin="40" Orientation="Horizontal" VerticalAlignment="Top">
+                <Button  x:Name="CategorySelectedChangedBtn" Visibility="Hidden" Command="{Binding CategoryComboboxSelected}"></Button>
+                <ComboBox  ItemsSource="{Binding CategoryNames}" Name="CategoryCombobox" SelectionChanged="CategoryComboboxSelectedChanged"  HorizontalAlignment="Left" Margin="0,0,50,0" Height="50" Width="200" Text="hello combo"></ComboBox>
+                <ComboBox  Name="AuthorsCombobox" IsEnabled="False"  ItemsSource="{Binding AuthorsNames}"  Height="50" Width="200" Text="hello combo"></ComboBox>
+            </StackPanel>
 
-        
+            <Label Content="Task Two" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <StackPanel Margin="40,20" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Height="40" Width="200" Background="AliceBlue" Name="search_textbox"/>
+                    <Button Command="{Binding CommandSearchButton}" CommandParameter="{Binding ElementName=search_textbox, Path=Text}" Height="40" Width="80" Margin="20,0" Content="search"/>
+                </StackPanel>
+            </StackPanel>
+            <Label Content="Task Three" HorizontalAlignment="Center" FontWeight="Bold"/>
+
+            <StackPanel HorizontalAlignment="Center"  Margin="40,20">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Height="40" Width="200" Background="AliceBlue" Name="delete_textbox"/>
+                    <Button Command="{Binding CommandDeleteButton}" CommandParameter="{Binding ElementName=delete_textbox, Path=Text}" Height="40" Width="80" Margin="20,0" Content="delete"/>
+                </StackPanel>
+            </StackPanel>
+            <Label Content="Task Four" HorizontalAlignment="Center" FontWeight="Bold"/>
+
+            <StackPanel HorizontalAlignment="Center"  Margin="40,20">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Name="textboxs">
+                        <StackPanel>
+                            <Label Content="old name" FontWeight="Bold"/>
+                            <TextBox Margin="10,0" Height="40" Width="100" BorderBrush="Black" Background="AliceBlue" Name="update_oldname_textbox"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="new name" FontWeight="Bold"/>
+                            <TextBox Height="40" Width="100" Background="AliceBlue" BorderBrush="Black" Name="update_newname_textbox"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <Button Command="{Binding CommandUpdateButton}" CommandParameter="{Binding ElementName=textboxs}" Height="60" Width="80" Margin="20,0" Content="update"/>
+                </StackPanel>
+            </StackPanel>
+            <Border BorderBrush="Black" Width="700" Height="230" BorderThickness="2">
+
+                <StackPanel  HorizontalAlignment="Center"  Margin="40,20">
+
+                    <StackPanel x:Name="insert_boxs" >
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="id" Width="70" HorizontalContentAlignment="Center"/>
+                            <TextBox Height="20" Width="200" Margin="10,0" Background="AliceBlue"  Name="id_textbox"/>
+                            <Label Content="Name" Width="70" HorizontalContentAlignment="Center"/>
+                            <TextBox Height="20" Width="200" Background="AliceBlue" Name="Name_textbox"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Pages" Width="70" HorizontalContentAlignment="Center"/>
+                            <TextBox Height="20" Width="200" Margin="10,0" Background="AliceBlue"  Name="Pages_textbox"/>
+                            <Label Content="YearPress" Width="70" HorizontalContentAlignment="Center"/>
+                            <TextBox Height="20" Width="200" Background="AliceBlue"  Name="YearPress_textbox"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="ID Themes" Width="70" HorizontalContentAlignment="Center"/>
+                            <TextBox Height="20" Width="200" Margin="10,0" Background="AliceBlue"  Name="Id_Themes_textbox"/>
+                            <Label Content="ID Category" Width="70" HorizontalContentAlignment="Center"/>
+                            <TextBox Height="20" Width="200" Background="AliceBlue" Margin="0,5" Name="Id_Category_textbox"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="ID Author" Width="70" HorizontalContentAlignment="Center"/>
+                            <TextBox Height="20" Width="200" Background="AliceBlue" Margin="10,0" Name="Id_Author_textbox"/>
+                            <Label Content="ID Press" Width="70" HorizontalContentAlignment="Center"/>
+                            <TextBox Height="20" Width="200" Background="AliceBlue"  Name="Id_Press_textbox"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Comment" Width="70" HorizontalContentAlignment="Center"/>
+                            <TextBox Height="20" Width="200" Background="AliceBlue" Margin="10,5" Name="Comment_textbox"/>
+                            <Label Content="Quantity" Width="70" HorizontalContentAlignment="Center"/>
+                            <TextBox Height="20" Width="200" Background="AliceBlue" Margin="0,5" Name="Quantity_textbox"/>
+                        </StackPanel>
+                        <Button Command="{Binding CommandInsertButton}" CommandParameter="{Binding ElementName=insert_boxs}" Height="20" Width="200" Margin="20"  Content="insert"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
     </Grid>
 </Window>
